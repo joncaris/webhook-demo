@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "lerna run build --parallel",
+    "watch": "lerna run watch --parallel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
