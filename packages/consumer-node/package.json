@@ -1,0 +1,24 @@
+{
+  "name": "consumer-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -e ts --exec \"tsc && node dist/index.js\" --ignore 'dist/*' --ignore '*.log'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "axios": "^1.7.7",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.7",
+    "typescript": "^5.6.2"
+  }
+}
