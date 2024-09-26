@@ -1,5 +1,5 @@
 # Use the official OpenJDK image as the base
-FROM openjdk:17-jdk-slim
+FROM maven:3.9.3-eclipse-temurin-17
 
 # Set the working directory inside the container
 WORKDIR /app
