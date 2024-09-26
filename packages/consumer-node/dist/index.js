@@ -8,6 +8,8 @@ const ajv_1 = __importDefault(require("ajv"));
 const axios_1 = __importDefault(require("axios"));
 const app = (0, express_1.default)();
 const port = 3000;
+const serviceName = 'consumer-node-service';
+const serviceUrl = `http://${serviceName}:${port}`;
 const ajv = new ajv_1.default();
 app.use(express_1.default.json());
 const webhookDataSchema = {
@@ -57,13 +59,13 @@ app.post('/webhook', (req, res) => {
     }
 });
 app.listen(port, () => {
-    console.log(`Webhook server listening at http://localhost:${port}`);
+    console.log(`Webhook server listening at ${serviceUrl}`);
 });
 //subsribe to ordercreated events
-axios_1.default.post('http://localhost:3001/subscribe', {
+axios_1.default.post('http://producer-service:3001/subscribe', {
     userId: 'user123', // Replace with your actual user ID
     event: 'order.created',
-    webhookUrl: 'http://localhost:3000/webhook' // The URL of your consumer's webhook endpoint
+    webhookUrl: `${serviceUrl}/webhook` // The URL of your consumer's webhook endpoint
 })
     .then(response => {
     console.log('Subscription successful:', response.data);

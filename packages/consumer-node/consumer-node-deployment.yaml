@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-node-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer-node
+  template:
+    metadata:
+      labels:
+        app: consumer-node
+    spec:
+      containers:
+        - name: consumer-node
+          imagePullPolicy: Never
+          image: webhook-demo/consumer-node:latest
+          ports:
+            - containerPort: 3000 

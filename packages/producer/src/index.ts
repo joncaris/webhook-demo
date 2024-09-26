@@ -12,7 +12,7 @@ const subscriptions: { [event: string]: string[] } = {};
 
 app.post('/subscribe', (req, res) => {
     const { userId, event } = req.body;
-    const webhookUrl = req.body.webhookUrl; 
+    const webhookUrl = req.body.webhookUrl;
 
     if (!subscriptions[event]) {
         subscriptions[event] = [];
@@ -40,5 +40,5 @@ app.post('/trigger_event', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Webhook producer listening at http://localhost:${port}`);
+    console.log(`Webhook producer listening at http://producer-service:${port}`);
 });
