@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-java-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: consumer-java
+  template:
+    metadata:
+      labels:
+        app: consumer-java
+    spec:
+      containers:
+        - name: consumer-java
+          imagePullPolicy: Never
+          image: webhook-demo/consumer-java:latest 
+          ports:
+            - containerPort: 9000 

@@ -28,7 +28,7 @@ public class WebhookController {
     @PostConstruct
     public void subscribeOnStartup() {
         // Subscribe to the 'order.created' event
-        subscribeToEvent("order.created", "http://localhost:9000/webhook");
+        subscribeToEvent("order.created", "http://consumer-java-service:9000/webhook");
     }
 
     private void subscribeToEvent(String event, String webhookUrl) {
@@ -47,7 +47,7 @@ public class WebhookController {
 
         // Send the subscription request
         try {
-            restTemplate.postForEntity("http://localhost:3001/subscribe", requestEntity, String.class);
+            restTemplate.postForEntity("http://producer-service:3001/subscribe", requestEntity, String.class);
             System.out.println("Subscribed to event: " + event);
         } catch (Exception e) {
             System.err.println("Error subscribing to event: " + e.getMessage());

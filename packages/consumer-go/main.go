@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	err := subscribeToEvent("order.created", "http://localhost:8080/webhook")
+	err := subscribeToEvent("order.created", "http://consumer-go-service:8080/webhook")
 	if err != nil {
 		log.Fatal("Error subscribing to event:", err)
 	}
@@ -36,7 +36,7 @@ func subscribeToEvent(event string, webhookUrl string) error {
 	}
 
 	// Create a POST request to the producer's /subscribe endpoint
-	resp, err := http.Post("http://localhost:3001/subscribe", "application/json", bytes.NewBuffer(jsonData))
+	resp, err := http.Post("http://producer-service:3001/subscribe", "application/json", bytes.NewBuffer(jsonData))
 	if err != nil {
 		return err
 	}
