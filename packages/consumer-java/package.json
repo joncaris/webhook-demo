@@ -2,6 +2,7 @@
     "name": "consumer-java",
     "version": "1.0.0",
     "scripts": {
-        "build-image": "docker build -t webhook-demo/consumer-java -f Dockerfile ."
+        "build-image": "docker build -t webhook-demo/consumer-java -f Dockerfile .",
+        "start": "mvn spring-boot:run"
     }
 }
