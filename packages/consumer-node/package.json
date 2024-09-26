@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e ts --exec \"tsc && node dist/index.js\" --ignore 'dist/*' --ignore '*.log'"
+    "start": "nodemon -e ts --exec \"tsc && node dist/index.js\" --ignore 'dist/*' --ignore '*.log'",
+    "build-image": "docker build -t webhook-demo/consumer-node ."
   },
   "keywords": [],
   "author": "",

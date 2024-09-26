@@ -1,0 +1,7 @@
+{
+    "name": "consumer-go",
+    "version": "1.0.0",
+    "scripts": {
+        "build-image": "docker build -t webhook-demo/consumer-go -f Dockerfile ."
+    }
+}
